@@ -11,7 +11,7 @@
 		function __construct($req)
 		{
 			$this->request = $req;
-			$this->loadModel('User');
+			//$this->loadModel('User');
 		}
 		
 

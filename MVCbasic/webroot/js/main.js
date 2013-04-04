@@ -28,7 +28,7 @@ $(document).ready(function(){
 		var login = $("#formLogin").val();
 		$.ajax({
 			type : 'get',
-			url : 'http://localhost/RezOPrototype/Application/validationLogin/'+login,
+			url : 'validationLogin/'+login,
 			success : function(data){
 				if(data == 1)
 				{
@@ -47,13 +47,11 @@ $(document).ready(function(){
 
 
 	//test le mail
-	/*
 	$("#formEmail").focusout(function(){
 		var email = $("#formEmail").val();
-		//alert(email);
 		$.ajax({
 			type : 'get',
-			url : 'http://localhost/RezOPrototype/Application/validationEmail/'+email,
+			url : 'validationEmail/'+email,
 			success : function(data){
 				if(data == 1)
 				{
@@ -68,7 +66,6 @@ $(document).ready(function(){
 			}
 		});
 	});
-	*/
 
 	//test avt final avt envoie des donnees
 	$("#btnSignup").click(function(){

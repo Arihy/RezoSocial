@@ -10,7 +10,7 @@
 				'host'	=>	'localhost',
 				'database' 	=> 'rezosocial',
 				'login'		=> 'root',
-				'password'	=>	'',
+				'password'	=>	'root',
 				),
 			);
 	}
