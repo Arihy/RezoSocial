@@ -114,6 +114,14 @@ $(document).ready(function(){
 
 		if(champVide || errors)
 			return false;
+		else
+		{
+			$.ajax({
+				type : 'get',
+				url : 'validationSignup/'+loginV+'/'+passV+'/'+mailV
+			});
+			return true;
+		}
 		
 	});
 

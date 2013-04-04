@@ -18,7 +18,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/RezOProject">RezOProject</a>
+          <a class="brand" href="/RezoSocial">RezOProject</a>
         </div>
       </div>
     </div>

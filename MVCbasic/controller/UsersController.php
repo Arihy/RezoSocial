@@ -29,5 +29,25 @@
 			$res = $this->User->isEmail($req);
 			echo $res;
 		}
+
+		function validationSignup($login, $pass, $email)
+		{
+			$this->loadModel('User');
+			$req = array(
+				'login'		=>	$login,
+				'password'	=>	$pass,
+				'email'		=>	$email);
+			$res = $this->User->save($req);
+			if($res)
+			{
+				echo $res;
+				$this->render('index');
+				//setMessage('Votre inscription est valide !', 'success');
+			}
+			else
+			{
+				//setMessage('Echec de l\'inscription', 'error');
+			}
+		}
 	}
 ?>
