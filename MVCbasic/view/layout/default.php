@@ -7,10 +7,11 @@
     
     <title>RezOProject</title>
     
-    <link rel="stylesheet" href="<?php echo CSS_FOLDER.DS.'bootstrap.css'; ?>" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo CSS_FOLDER.DS.'bootstrap.min.css'; ?>" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo CSS_FOLDER.DS.'main.css'; ?>" type="text/css" media="screen" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
     <script type="text/javascript" src="<?php echo JS_FOLDER.DS.'main.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo JS_FOLDER.DS.'bootstrap.min.js'; ?>"></script>
 
 </head>
 
@@ -23,6 +24,7 @@
       </div>
     </div>
     <div class="container">
+      <?php echo $this->Session->readMessage(); ?>
 		<?php echo $content; ?>
     </div>
 	<div id="footer">

@@ -29,7 +29,7 @@
 			$res = $this->User->isEmail($req);
 			echo $res;
 		}
-		
+
 
 		function validationSignup()
 		{
@@ -45,13 +45,13 @@
 			if($res)
 			{
 				//echo $res;
+				$this->Session->setMessage('Votre inscription est valide !', 'success');
 				$this->render('index');
-				//setMessage('Votre inscription est valide !', 'success');
 			}
 			else
 			{
+				$this->Session->setMessage('Echec de l\'inscription', 'error');
 				$this->render('signup');
-				//setMessage('Echec de l\'inscription', 'error');
 			}
 		}
 	}

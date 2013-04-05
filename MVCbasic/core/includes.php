@@ -1,6 +1,6 @@
 <?php
 
-	//require 'Session.php';
+	require 'Session.php';
 	require ROOT.DS.'config'.DS.'conf.php';
 	require 'Request.php';
 	require 'Router.php';

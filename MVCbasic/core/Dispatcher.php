@@ -25,12 +25,15 @@
 			$file = ROOT.DS.'controller'.DS.$name.'.php';
 			require $file;
 
-			return new $name($this->request);
+			$controller = new $name($this->request);
+			$controller->Session = new Session();
+			return $controller;
 		}
 
 		function error($message)
 		{
 			$controller = new Controller($this->request);
+			$controller->Session = new Session();
 			$controller->set('msg', $message);
 			$controller->render("/errors/404");
 			die();
