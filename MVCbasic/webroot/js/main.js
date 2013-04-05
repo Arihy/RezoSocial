@@ -114,6 +114,7 @@ $(document).ready(function(){
 
 		if(champVide || errors)
 			return false;
+		/*
 		else
 		{
 			$.ajax({
@@ -122,6 +123,7 @@ $(document).ready(function(){
 			});
 			return true;
 		}
+		*/
 		
 	});
 

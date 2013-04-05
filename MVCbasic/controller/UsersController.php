@@ -29,9 +29,13 @@
 			$res = $this->User->isEmail($req);
 			echo $res;
 		}
+		
 
-		function validationSignup($login, $pass, $email)
+		function validationSignup()
 		{
+			$login = $_POST['login'];
+			$pass = sha1($_POST['password']);
+			$email = $_POST['email'];
 			$this->loadModel('User');
 			$req = array(
 				'login'		=>	$login,
@@ -40,12 +44,13 @@
 			$res = $this->User->save($req);
 			if($res)
 			{
-				echo $res;
+				//echo $res;
 				$this->render('index');
 				//setMessage('Votre inscription est valide !', 'success');
 			}
 			else
 			{
+				$this->render('signup');
 				//setMessage('Echec de l\'inscription', 'error');
 			}
 		}

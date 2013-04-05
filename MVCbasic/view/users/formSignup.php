@@ -1,4 +1,4 @@
-<form method="POST" action="index">
+<form method="POST" action="validationSignup">
 	<label>login: </label>
 	<input type="text" name="login" id="formLogin"/><span id="formLoginId"></span>
 
