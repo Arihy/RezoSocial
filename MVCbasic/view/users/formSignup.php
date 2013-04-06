@@ -1,4 +1,4 @@
-<form method="POST" action="validationSignup">
+<form method="POST" action="<?php echo RACINE.DS.'users'.DS.'validationSignup' ?>">
 	<label>login: </label>
 	<input type="text" name="login" id="formLogin"/><span id="formLoginId"></span>
 

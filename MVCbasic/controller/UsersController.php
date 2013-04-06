@@ -14,6 +14,11 @@
 			$this->render('formSignup');
 		}
 
+		function profil()
+		{
+			$this->render('profil');
+		}
+
 		function validationLogin($login)
 		{
 			$this->loadModel('User');
