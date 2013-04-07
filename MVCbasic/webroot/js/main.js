@@ -113,18 +113,27 @@ $(document).ready(function(){
 		}
 
 		if(champVide || errors)
+		{
 			return false;
-		/*
-		else
+		}		
+		
+	});
+
+	//fonction de recherche d'amis
+	$("#search").keyup(function(){
+		var search = $(this).val();
+
+		if(search.length > 1)
 		{
 			$.ajax({
-				type : 'get',
-				url : 'validationSignup/'+loginV+'/'+passV+'/'+mailV
+				type : "GET",
+				url : "searchUser",
+				data : "user=" + search,
+				success : function(server_response){
+					$(".searchResult").html(server_response);
+				}
 			});
-			return true;
 		}
-		*/
-		
 	});
 
 });

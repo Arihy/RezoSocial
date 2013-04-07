@@ -48,5 +48,30 @@
 				return false;
 			
 		}
+
+		public function search($req, $champ)
+		{
+			$sql = 'SELECT '.$champ.' FROM '.$this->table.' WHERE '.$champ.' like "%'.$req.'%"';
+
+			$prepare = $this->db->prepare($sql);
+			$prepare->execute($q);
+			$count = $prepare->rowCount($sql);
+			
+			$res = "";
+			
+			if($count)
+			{
+				while ($table = $prepare->fetch(PDO::FETCH_OBJ))
+				{
+					$res .= $table->login.'<br>';
+				}
+			}
+			else
+			{
+				$res .= 'aucun resultat trouvé';
+			}
+
+			return $res;
+		}
 	}
 ?>

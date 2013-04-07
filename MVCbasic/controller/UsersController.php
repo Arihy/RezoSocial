@@ -59,5 +59,18 @@
 				$this->render('signup');
 			}
 		}
+
+		function searchUser()
+		{
+			if(isset($_GET['user']))
+			{
+				$user = $_GET['user'];
+
+				$this->loadModel('User');
+
+				$res = $this->User->search($user, 'login');
+				echo $res;
+			}
+		}
 	}
 ?>

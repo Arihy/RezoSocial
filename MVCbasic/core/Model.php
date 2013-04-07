@@ -89,7 +89,7 @@
 			$sql = 'INSERT INTO '.$this->table.' (login, password, email)';
 			$sql .= ' values ("'.$req['login'].'", "'.$req['password'].'", "'.$req['email'].'")';
 			
-			$prepare =$this->db->prepare($sql);
+			$prepare = $this->db->prepare($sql);
 			return $prepare->execute();
 		}
 	}
