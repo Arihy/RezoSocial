@@ -32,15 +32,11 @@
       <aside class="search">
 		<input type="text" id="search" placeholder="recherche"/>
 		<span class="add-on"><i class="icon-search"></i></span>
-
-		<div class="searchResult"></div>
 		
 		<div class="well sidebar-nav">
+			<ul class="nav nav-list" id="searchResult">
+            </ul>
             <ul class="nav nav-list">
-              <li class="nav-header ">Resultat</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
               <li class="nav-header">Amis connecté</li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>

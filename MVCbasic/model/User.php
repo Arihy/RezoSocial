@@ -66,18 +66,16 @@
 			$prepare->execute($q);
 			$count = $prepare->rowCount($sql);
 			
-			$res = "";
-			
+			$res = array();
+			$i = 0;
 			if($count)
 			{
 				while ($table = $prepare->fetch(PDO::FETCH_OBJ))
 				{
-					$res .= $table->login.'<br>';
+					//$res .= $table->login.'<br>';
+					$res[$i] = $table->login;
+					$i = $i + 1;
 				}
-			}
-			else
-			{
-				$res .= 'aucun resultat trouvé';
 			}
 
 			return $res;

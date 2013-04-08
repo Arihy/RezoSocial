@@ -123,14 +123,29 @@ $(document).ready(function(){
 	$("#search").keyup(function(){
 		var search = $(this).val();
 
-		if(search.length > 1)
+		if(search.length > 2)
 		{
+			$("#searchResult").html("");
 			$.ajax({
 				type : "GET",
 				url : "searchUser",
+				datatype : "json",
 				data : "user=" + search,
 				success : function(server_response){
-					$(".searchResult").html(server_response);
+					var count = server_response.length;
+					var html = "<li class='nav-header'>Resultat</li>";
+					if(count != 0)
+					{
+						for (var i = 0; i < count; i++)
+						{
+							html += "<li><a href='#'>"+server_response[i]+"</a></li>";
+						}
+					}
+					else
+					{
+						html += "<li>Aucun resultat.</li>";
+					}
+					$("#searchResult").append(html);
 				}
 			});
 		}
