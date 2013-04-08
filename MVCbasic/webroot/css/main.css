@@ -28,3 +28,38 @@ html, body
 {
     margin: 20px 40%;
 }
+
+article, aside
+{
+    display: inline-block;
+    vertical-align: top;
+    text-align: justify;
+}
+ 
+article
+{
+    width: 625px;
+    margin-right: 15px;
+}
+
+aside
+{
+    position: relative;
+    width: 235px;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 2%;
+    color: white;
+    font-size: 0.9em;
+}
+
+ 
+#writeMsg
+{
+    border-radius: 5px 5px 5px 5px;
+    padding: 1px 0px 1px 25%;
+    background-color: rgba(24,24,24,0.8);
+    color: white;
+}

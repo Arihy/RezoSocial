@@ -49,6 +49,15 @@
 			
 		}
 
+		public function save($req)
+		{
+			$sql = 'INSERT INTO '.$this->table.' (login, password, email)';
+			$sql .= ' values ("'.$req['login'].'", "'.$req['password'].'", "'.$req['email'].'")';
+			
+			$prepare = $this->db->prepare($sql);
+			return $prepare->execute();
+		}
+
 		public function search($req, $champ)
 		{
 			$sql = 'SELECT '.$champ.' FROM '.$this->table.' WHERE '.$champ.' like "%'.$req.'%"';

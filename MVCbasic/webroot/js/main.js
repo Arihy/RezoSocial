@@ -82,16 +82,16 @@ $(document).ready(function(){
 
 		if(loginV == "")
 		{
-			login.html('');
-			login.html('<font color="red">Le login est obligatoire</font>');
+			$("#formLoginId").html('');
+			$("#formLoginId").html('<font color="red">Le login est obligatoire</font>');
 			login.css("border", "#FF0000 solid 1px");
 			champVide = 1;
 		}
 
 		if(mailV == "")
 		{
-			mail.html('');
-			mail.html('<font color="red">Le mail est obligatoire</font>');
+			$("#formEmailId").html('');
+			$("#formEmailId").html('<font color="red">Le mail est obligatoire</font>');
 			mail.css("border", "#FF0000 solid 1px");
 			champVide = 1;
 		}
@@ -106,8 +106,8 @@ $(document).ready(function(){
 
 		if(passRV == "")
 		{
-			passR.html('');
-			passR.html('<font color="red">Le mdp est obligatoire</font>');
+			$("#passwordRepeatId").html('');
+			$("#passwordRepeatId").html('<font color="red">Le mdp est obligatoire</font>');
 			passR.css("border", "#FF0000 solid 1px");
 			champVide = 1;
 		}
