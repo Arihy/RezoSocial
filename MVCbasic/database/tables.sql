@@ -1,5 +1,4 @@
 -- DROP TABLE users;
-
 CREATE TABLE users (
  
   id               int(10) NOT NULL AUTO_INCREMENT,
@@ -15,6 +14,7 @@ CREATE TABLE users (
  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+
 CREATE TABLE relationships (
   id1 int(10) NOT NULL,
   id2 int(10) NOT NULL,
@@ -24,4 +24,15 @@ CREATE TABLE relationships (
   PRIMARY KEY (id1, id2),
   FOREIGN KEY (id1) REFERENCES users(id),
   FOREIGN KEY (id2) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+
+CREATE TABLE messages (
+ 
+  owner_id int(10) NOT NULL,
+  content  varchar(255)  NOT NULL,
+  created date NOT NULL,
+ 
+  PRIMARY KEY (owner_id),
+  FOREIGN KEY (owner_id) REFERENCES users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;

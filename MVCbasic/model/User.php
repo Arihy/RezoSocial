@@ -72,7 +72,6 @@
 			{
 				while ($table = $prepare->fetch(PDO::FETCH_OBJ))
 				{
-					//$res .= $table->login.'<br>';
 					$res[$i] = $table->login;
 					$i = $i + 1;
 				}
