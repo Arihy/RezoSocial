@@ -94,7 +94,7 @@
 			$sql = 'SELECT '.$champ.' FROM '.$this->table.' WHERE '.$champ.' like "%'.$req.'%"';
 
 			$prepare = $this->db->prepare($sql);
-			$prepare->execute($q);
+			$prepare->execute();
 			$count = $prepare->rowCount($sql);
 			
 			$res = array();
