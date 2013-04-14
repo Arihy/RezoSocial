@@ -7,4 +7,7 @@
 	require 'Dispatcher.php';
 	require 'Controller.php';
 	require 'Model.php';
+
+
+	require ROOT.DS.'model'.DS.'User.php';
 ?>

@@ -11,7 +11,6 @@
 		function __construct($req)
 		{
 			$this->request = $req;
-			//$this->loadModel('User');
 		}
 		
 
@@ -55,20 +54,6 @@
 			else
 			{
 				$this->vars[$key] = $val;
-			}
-		}
-
-		/**
-		* permet de charger un model
-		* @param $name nom du model a charger
-		**/
-		function loadModel($name)
-		{
-			$file = ROOT.DS.'model'.DS.$name.'.php';
-			require_once($file);
-			if(!isset($this->name))
-			{
-				$this->$name = new $name();
 			}
 		}
 	}

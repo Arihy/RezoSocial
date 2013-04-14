@@ -4,6 +4,37 @@
 	**/
 	class User extends Model
 	{
+		private $id;
+		private $login;
+		private $password;
+		private $email;
+		private $created;
+		private $friendsList;
+
+		/**
+		* Ce constructeur permet d'initialiser la connection a la bdd
+		* Comme il n'y a pas de surcharge en php
+		* Le constructeur va aussi se charger d'appeler le bon constructeur
+		* Selon le nombre de parametre qu'on lui donne lors de l'appel
+		*/
+
+		function __construct()
+		{
+			$this->connect();
+
+			$params = func_get_args(); 
+	        $nbArgs = func_num_args(); 
+	        if (method_exists($this,$const='__construct'.$nbArgs)) { 
+	            call_user_func_array(array($this,$const),$params); 
+	        }
+		}
+
+		function __construct3($login, $password, $email)
+		{
+			$this->login = $login;
+			$this->password = $password;
+			$this->email = $email;
+		}
 
 		/**
 		* Test si le login est utilise

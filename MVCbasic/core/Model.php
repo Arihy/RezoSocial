@@ -10,7 +10,7 @@
 		public $table = false;
 		public $db;
 
-		public function __construct()
+		public function connect()
 		{
 			$conf = Conf::$databases[$this->conf];
 

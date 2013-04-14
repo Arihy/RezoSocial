@@ -21,17 +21,17 @@
 
 		function validationLogin($login)
 		{
-			$this->loadModel('User');
+			$user = new User();
 			$req = array('conditions' => 'login="'.$login.'"');
-			$res = $this->User->isLogin($req);
+			$res = $user->isLogin($req);
 			echo $res;
 		}
 
 		function validationEmail($email)
 		{
-			$this->loadModel('User');
+			$user = new User();
 			$req = array('conditions' => 'email="'.$email.'"');
-			$res = $this->User->isEmail($req);
+			$res = $user->isEmail($req);
 			echo $res;
 		}
 
@@ -41,15 +41,14 @@
 			$login = $_POST['login'];
 			$pass = sha1($_POST['password']);
 			$email = $_POST['email'];
-			$this->loadModel('User');
+			$user = new User();
 			$req = array(
 				'login'		=>	$login,
 				'password'	=>	$pass,
 				'email'		=>	$email);
-			$res = $this->User->save($req);
+			$res = $user->save($req);
 			if($res)
 			{
-				//echo $res;
 				$this->Session->setMessage('Votre inscription est valide !', 'success');
 				$this->render('index');
 			}
@@ -64,11 +63,11 @@
 		{
 			if(isset($_GET['user']))
 			{
-				$user = $_GET['user'];
+				$login = $_GET['user'];
 
-				$this->loadModel('User');
+				$user = new User();
 
-				$res = $this->User->search($user, 'login');
+				$res = $user->search($login, 'login');
 				
 				header('Content-Type: application/json');
 				echo json_encode($res);
