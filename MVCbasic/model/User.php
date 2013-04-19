@@ -11,29 +11,27 @@
 		private $created;
 		private $friendsList;
 
-		/**
-		* Ce constructeur permet d'initialiser la connection a la bdd
-		* Comme il n'y a pas de surcharge en php
-		* Le constructeur va aussi se charger d'appeler le bon constructeur
-		* Selon le nombre de parametre qu'on lui donne lors de l'appel
-		*/
-
-		function __construct()
-		{
-			$this->connect();
-
-			$params = func_get_args(); 
-	        $nbArgs = func_num_args(); 
-	        if (method_exists($this,$const='__construct'.$nbArgs)) { 
-	            call_user_func_array(array($this,$const),$params); 
-	        }
-		}
 
 		function __construct3($login, $password, $email)
 		{
 			$this->login = $login;
 			$this->password = $password;
 			$this->email = $email;
+		}
+
+		function getLogin()
+		{
+			return $this->login;
+		}
+
+		function getPassword()
+		{
+			return $this->password;
+		}
+
+		function getEmail()
+		{
+			return $this->email;
 		}
 
 		/**
@@ -107,6 +105,28 @@
 					$i = $i + 1;
 				}
 			}
+
+			return $res;
+		}
+
+		public function findByLogin($login)
+		{
+			$sql = 'SELECT * FROM '.$this->table.' WHERE login = "'.$login.'" ';
+
+			$prepare = $this->db->prepare($sql);
+			$prepare->execute();
+			$res = $prepare->fetch(PDO::FETCH_ASSOC);
+			
+			return $res;
+		}
+
+		public function findById($id)
+		{
+			$sql = 'SELECT * FROM '.$this->table.' WHERE id = '.$id.' ';
+
+			$prepare = $this->db->prepare($sql);
+			$prepare->execute();
+			$res = $prepare->fetch(PDO::FETCH_ASSOC);
 
 			return $res;
 		}

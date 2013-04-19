@@ -10,4 +10,5 @@
 
 
 	require ROOT.DS.'model'.DS.'User.php';
+	require ROOT.DS.'model'.DS.'Message.php';
 ?>

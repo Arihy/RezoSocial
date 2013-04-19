@@ -10,6 +10,25 @@
 		public $table = false;
 		public $db;
 
+
+		/**
+		* Ce constructeur permet d'initialiser la connection a la bdd
+		* Comme il n'y a pas de surcharge en php
+		* Le constructeur va aussi se charger d'appeler le bon constructeur
+		* Selon le nombre de parametre qu'on lui donne lors de l'appel
+		*/
+
+		function __construct()
+		{
+			$this->connect();
+
+			$params = func_get_args(); 
+	        $nbArgs = func_num_args(); 
+	        if (method_exists($this,$const='__construct'.$nbArgs)) { 
+	            call_user_func_array(array($this,$const),$params); 
+	        }
+		}
+
 		public function connect()
 		{
 			$conf = Conf::$databases[$this->conf];

@@ -73,5 +73,45 @@
 				echo json_encode($res);
 			}
 		}
+
+		function signin()
+		{
+			$this->render('formSignin');
+		}
+
+		function signout()
+		{
+			$this->Session->logout();
+			$this->render('index');
+		}
+
+		function validationSignin()
+		{
+			if(isset($_POST['login']) && isset($_POST['password']))
+			{
+				$user = new User();
+				$res = $user->findByLogin($_POST['login']);
+				if($res)
+				{
+					$pass = $res['password'];
+					if($pass == sha1($_POST['password']))
+					{
+						//connection
+						$this->Session->login($_POST['login']);
+						$this->render('profil');
+					}
+					else
+					{
+						$this->Session->setMessage('Login ou mot de pass incorrect', 'error');
+						$this->render('formSignin');
+					}
+				}
+				else
+				{
+					$this->Session->setMessage('Login ou mot de pass incorrect', 'error');
+					$this->render('formSignin');
+				}
+			}
+		}
 	}
 ?>

@@ -5,7 +5,7 @@ CREATE TABLE users (
   login  varchar(32)  NOT NULL,
   password     char(40)     NOT NULL,
   email    varchar(128) NOT NULL,
-  created date NOT     NULL,
+  created TIMESTAMP DEFAULT NOW(),
  
   PRIMARY KEY (id),
   UNIQUE KEY login (login),
@@ -14,11 +14,11 @@ CREATE TABLE users (
  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-
+-- DROP TABLE relationships;
 CREATE TABLE relationships (
   id1 int(10) NOT NULL,
   id2 int(10) NOT NULL,
-  request_date date NOT NULL,
+  request_date TIMESTAMP DEFAULT NOW(),
   acceptation_date date,
 
   PRIMARY KEY (id1, id2),
@@ -26,13 +26,12 @@ CREATE TABLE relationships (
   FOREIGN KEY (id2) REFERENCES users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
-
+-- DROP TABLE messages;
 CREATE TABLE messages (
  
   owner_id int(10) NOT NULL,
   content  varchar(255)  NOT NULL,
-  created date NOT NULL,
+  created TIMESTAMP DEFAULT NOW(),
  
-  PRIMARY KEY (owner_id),
   FOREIGN KEY (owner_id) REFERENCES users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;

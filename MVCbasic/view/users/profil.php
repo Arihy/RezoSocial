@@ -5,14 +5,15 @@
       <div id="writeMsg">
 		<h4>Exprimez-vous</h4>
 		<form>
-			<input type="textarea" name="msgWall"><span class="add-on"><i class="icon-message"></i></span>
-			<button class="btn btn-primary">send</button>
+			<input type="textarea" name="msgWall" id="msgWall"><span class="add-on"><i class="icon-message"></i></span>
+			<button class="btn btn-primary" id="btn-send">send</button>
 		</form>
 		</div>
       <article id="ressources">
 		<h4>Messages</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. </p>
+		<p class="msg-content">
+			<button class="btn btn-primary" id="btn-content">load</button>
+		</p>
 
 		<h4>Event</h4>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

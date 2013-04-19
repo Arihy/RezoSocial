@@ -21,8 +21,21 @@
         <div class="container">
           <a class="brand" href="<?php echo RACINE.DS.'users' ?>">RezOProject</a>
           <ul class="nav nav-pills pull-right">
-            <li><a href="<?php echo RACINE.DS.'users'.DS.'profil' ?>"><?php echo isset($_SESSION['user']) ? $_SESSION['user'] : 'Profil'; ?></a></li>
-            <li><a href=""><?php echo isset($_SESSION['user']) ? 'signout' : 'signin'; ?></a></li>
+            <li>
+              <?php 
+                echo $this->Session->isLogged() ? 
+                '<a href="'.RACINE.DS.'users'.DS.'profil">'.$this->Session->isLogged().'</a>' :
+                '';
+              ?>
+            </li>
+
+            <li>
+              <?php 
+                echo $this->Session->isLogged() ? 
+                '<a href="'.RACINE.DS.'users'.DS.'signout">signout</a>' : 
+                '<a href="'.RACINE.DS.'users'.DS.'signin">signin</a>';
+              ?>
+            </li>
           </ul>
         </div>
       </div>

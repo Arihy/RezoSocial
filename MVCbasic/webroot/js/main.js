@@ -151,4 +151,43 @@ $(document).ready(function(){
 		}
 	});
 
+
+	//Partie envoie du message au controller
+	$("#btn-send").click(function(){
+		var content = $("#msgWall").val();
+		if(content)
+		{
+			$("#msgWall").val("");
+			$.ajax({
+				type : "GET",
+				url : "../messages/saveMessage",
+				data : "content=" + content,
+				success : function(server_response){
+					//tester
+				}
+			});
+		}
+		return false;
+	});
+
+
+	//recuperer le dernier msg
+	function displayMessage()
+	{
+		$.ajax({
+			type : "GET",
+			url : "../messages/lastMessage",
+			datatype : "json",
+			success : function(server_response){
+				alert(server_response);
+			}
+
+		});
+	}
+
+	//setInterval(displayMessage, 3000);
+	$("#btn-content").click(function(){
+		displayMessage();
+	});
+
 });

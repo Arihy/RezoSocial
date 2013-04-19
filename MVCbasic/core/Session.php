@@ -29,5 +29,30 @@
 				return $html;
 			}
 		}
+
+		public function login($login)
+		{
+			$_SESSION['user'] = $login;
+		}
+
+		public function logout()
+		{
+			if(isset($_SESSION['user']))
+			{
+				unset($_SESSION['user']);
+			}
+		}
+
+		public function isLogged()
+		{
+			if(isset($_SESSION['user']))
+			{
+				return $_SESSION['user'];
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>
