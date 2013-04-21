@@ -28,10 +28,11 @@ CREATE TABLE relationships (
 
 -- DROP TABLE messages;
 CREATE TABLE messages (
- 
+  id int(10) NOT NULL AUTO_INCREMENT,
   owner_id int(10) NOT NULL,
   content  varchar(255)  NOT NULL,
   created TIMESTAMP DEFAULT NOW(),
  
+  PRIMARY KEY (id),
   FOREIGN KEY (owner_id) REFERENCES users(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

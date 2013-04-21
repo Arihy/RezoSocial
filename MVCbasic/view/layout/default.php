@@ -12,10 +12,36 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
     <script type="text/javascript" src="<?php echo JS_FOLDER.DS.'main.js'; ?>"></script>
     <script type="text/javascript" src="<?php echo JS_FOLDER.DS.'bootstrap.min.js'; ?>"></script>
+    <script type="text/javascript">
+      //lecture message
+      function readMessage()
+      {
+        $.ajax({
+          type : "GET",
+          datatype : "json",
+          url : "../messages/readMessage",
+          success : function(server_response)
+          {
+            var count = server_response.length;
+            var html = "";
+            if(count != 0)
+            {
+              for (var i = 0; i < count; i++)
+              {
+                html = "<p class=\"oneMessage\"> <input type=\"hidden\" value=\""+server_response[i]["id"]+"\" /> Date: "+server_response[i]["date"]+"<br>";
+                html += " "+server_response[i]["content"]+" </p>";
+                $("#msg-content").append(html);
+              }
+            }
+          }
+
+        });
+      }
+    </script>
 
 </head>
 
-<body>
+<body onload="readMessage()">
 	<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">

@@ -151,43 +151,20 @@ $(document).ready(function(){
 		}
 	});
 
-
-	//Partie envoie du message au controller
+	//envoie du message par jquery pour eviter le chargement de la page par php
 	$("#btn-send").click(function(){
-		var content = $("#msgWall").val();
-		if(content)
-		{
-			$("#msgWall").val("");
-			$.ajax({
-				type : "GET",
-				url : "../messages/saveMessage",
-				data : "content=" + content,
-				success : function(server_response){
-					//tester
-				}
-			});
-		}
-		return false;
-	});
+		content = $("#msgWall").val();
+		$("#msgWall").val("");
 
-
-	//recuperer le dernier msg
-	function displayMessage()
-	{
 		$.ajax({
 			type : "GET",
-			url : "../messages/lastMessage",
-			datatype : "json",
-			success : function(server_response){
-				alert(server_response);
+			url : "../messages/saveMessage",
+			data : "content=" + content,
+			success : function(){
+				//test
 			}
-
 		});
-	}
-
-	//setInterval(displayMessage, 3000);
-	$("#btn-content").click(function(){
-		displayMessage();
+		return false;
 	});
 
 });
