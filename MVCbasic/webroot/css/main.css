@@ -97,10 +97,6 @@ aside
 
 .oneMessage
 {
-    -moz-box-shadow:6px 6px 10px 1px #777777;
-    -webkit-box-shadow:6px 6px 10px 1px #777777;
-    box-shadow:6px 6px 10px 1px #777777;
-
     padding: 10px;
     background-color: #C0DFDD;
     border-radius: 10px;
